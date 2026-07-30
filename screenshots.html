@@ -8,6 +8,10 @@
 </head>
 <body>
   <div class="cursor"></div>
+  <div id="lightbox" class="lightbox">
+    <span class="lightbox-close">&times;</span>
+    <img class="lightbox-img" src="" alt="">
+  </div>
   <nav>
     <div class="nav-inner">
       <span class="nav-logo">essential<span class="highlight">browser</span></span>
@@ -21,28 +25,28 @@
   <section class="screenshots-page">
     <div class="screenshots-inner">
       <h1 class="screenshots-title">Screenshots</h1>
-      <p class="screenshots-sub">A look at Essential Browser in action.</p>
+      <p class="screenshots-sub">Click any image to expand.</p>
 
       <div class="screenshot-grid">
         <div class="screenshot-card">
           <div class="screenshot-frame">
-            <img src="screenshots/hero-section.png" alt="Hero Section" loading="lazy">
+            <img src="screenshots/Screenshot 2026-07-30 155601.png" alt="Screenshot 1" loading="lazy">
           </div>
-          <p class="screenshot-label">Hero Section</p>
+          <p class="screenshot-label">Screenshot 1</p>
         </div>
 
         <div class="screenshot-card">
           <div class="screenshot-frame">
-            <img src="screenshots/features-section.png" alt="Features Section" loading="lazy">
+            <img src="screenshots/Screenshot 2026-07-30 155610.png" alt="Screenshot 2" loading="lazy">
           </div>
-          <p class="screenshot-label">Features</p>
+          <p class="screenshot-label">Screenshot 2</p>
         </div>
 
         <div class="screenshot-card">
           <div class="screenshot-frame">
-            <img src="screenshots/download-section.png" alt="Download Section" loading="lazy">
+            <img src="screenshots/Screenshot 2026-07-30 155642.png" alt="Screenshot 3" loading="lazy">
           </div>
-          <p class="screenshot-label">Download Section</p>
+          <p class="screenshot-label">Screenshot 3</p>
         </div>
       </div>
     </div>
@@ -76,6 +80,21 @@
     document.querySelectorAll('a, button, .screenshot-card, .nav-btn').forEach(el => {
       el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
       el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+    });
+
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = lightbox.querySelector('.lightbox-img');
+    document.querySelectorAll('.screenshot-frame').forEach(frame => {
+      frame.addEventListener('click', () => {
+        lightboxImg.src = frame.querySelector('img').src;
+        lightboxImg.alt = frame.querySelector('img').alt;
+        lightbox.classList.add('open');
+        cursor.style.opacity = '0';
+      });
+    });
+    lightbox.addEventListener('click', () => {
+      lightbox.classList.remove('open');
+      cursor.style.opacity = '1';
     });
   </script>
 </body>
