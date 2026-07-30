@@ -153,7 +153,7 @@ nav {
 .hero-sub {
   font-size: clamp(18px, 3vw, 28px);
   color: var(--text-muted);
-  letter-spacing: 3px;
+  letter-spacing: 0;
   margin-bottom: 12px;
 }
 
