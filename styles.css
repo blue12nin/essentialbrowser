@@ -6,12 +6,12 @@
 
 @font-face {
   font-family: "Ndot 55";
-  src: url("../assets/Ndot55-Regular.otf") format("opentype");
+  src: url("assets/Ndot55-Regular.otf") format("opentype");
 }
 
 @font-face {
   font-family: "NType 82";
-  src: url("../assets/NType82-Regular.otf") format("opentype");
+  src: url("assets/NType82-Regular.otf") format("opentype");
 }
 
 :root {
