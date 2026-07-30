@@ -404,11 +404,11 @@ footer {
 /* Changelog */
 .changelog {
   min-height: 60vh;
-  padding: 60px 24px;
+  padding: 100px 24px 60px;
 }
 
 .changelog-inner {
-  max-width: 640px;
+  max-width: 720px;
   margin: 0 auto;
 }
 
@@ -416,44 +416,80 @@ footer {
   font-family: "Ndot 55", "Courier New", monospace;
   font-size: clamp(28px, 5vw, 42px);
   letter-spacing: 3px;
-  margin-bottom: 48px;
-}
-
-.changelog-entry {
-  margin-bottom: 40px;
-  padding-bottom: 40px;
-  border-bottom: 1px solid var(--border);
-}
-
-.changelog-entry:last-child {
-  border-bottom: none;
-}
-
-.version-badge {
-  display: inline-block;
-  font-family: "Ndot 55", "Courier New", monospace;
-  font-size: 18px;
-  letter-spacing: 1px;
-  padding: 6px 20px;
-  border-radius: 100px;
-  background: var(--accent);
-  color: #000;
   margin-bottom: 8px;
 }
 
-.version-date {
-  font-size: 12px;
+.changelog-sub {
+  font-size: 14px;
   color: var(--text-muted);
   letter-spacing: 1px;
-  margin-bottom: 20px;
+  margin-bottom: 48px;
 }
 
-.changelog-entry ul {
+.release-card {
+  display: flex;
+  gap: 40px;
+  padding: 32px 0;
+  border-bottom: 1px solid var(--border);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.release-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.release-side {
+  flex-shrink: 0;
+  width: 120px;
+  text-align: left;
+  padding-top: 4px;
+}
+
+.release-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Ndot 55", "Courier New", monospace;
+  font-size: 14px;
+  letter-spacing: 1px;
+  padding: 12px 28px;
+  border-radius: 12px;
+  background: var(--accent);
+  color: #000;
+  border: 2px solid var(--accent);
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  user-select: none;
+}
+
+.release-btn:hover {
+  background: transparent;
+  color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 199, 0, 0.25);
+}
+
+.release-date {
+  display: block;
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+  margin-top: 10px;
+}
+
+.release-content {
+  flex: 1;
+}
+
+.release-content ul {
   list-style: none;
   padding: 0;
 }
 
-.changelog-entry ul li {
+.release-content ul li {
   position: relative;
   padding-left: 20px;
   margin-bottom: 8px;
@@ -462,15 +498,25 @@ footer {
   color: var(--text-muted);
 }
 
-.changelog-entry ul li::before {
+.release-content ul li::before {
   content: ">";
   position: absolute;
   left: 0;
   color: var(--accent);
   font-family: "Ndot 55", "Courier New", monospace;
+  font-weight: bold;
 }
 
 @media (max-width: 600px) {
+  .release-card {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .release-side {
+    width: 100%;
+    text-align: left;
+  }
+
   .footer-inner {
     flex-direction: column;
     gap: 8px;
