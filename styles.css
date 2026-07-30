@@ -76,7 +76,7 @@ nav {
 .nav-logo {
   font-family: "Ndot 55", "Courier New", monospace;
   font-size: 18px;
-  letter-spacing: 2px;
+  letter-spacing: 0;
 }
 
 .nav-btn {
@@ -399,6 +399,85 @@ footer {
 
 .nav-links a:not(.nav-btn):hover {
   opacity: 0.6;
+}
+
+/* Screenshots */
+.screenshots-page {
+  padding: 100px 24px 60px;
+}
+
+.screenshots-inner {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.screenshots-title {
+  font-family: "Ndot 55", "Courier New", monospace;
+  font-size: clamp(28px, 5vw, 42px);
+  letter-spacing: 3px;
+  margin-bottom: 8px;
+}
+
+.screenshots-sub {
+  font-size: 14px;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+  margin-bottom: 48px;
+}
+
+.screenshot-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.screenshot-card {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  border-radius: 16px;
+  padding: 16px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.screenshot-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.screenshot-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-4px);
+}
+
+.screenshot-card.visible:hover {
+  transform: translateY(-4px);
+}
+
+.screenshot-frame {
+  border-radius: 10px;
+  overflow: hidden;
+  background: #000;
+  aspect-ratio: 16 / 10;
+}
+
+.screenshot-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.screenshot-label {
+  font-family: "Ndot 55", "Courier New", monospace;
+  font-size: 13px;
+  letter-spacing: 1px;
+  margin-top: 12px;
+  text-align: center;
+  color: var(--text);
 }
 
 /* Changelog */

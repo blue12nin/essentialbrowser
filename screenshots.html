@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>What's New — Essential Browser</title>
+  <title>Screenshots — Essential Browser</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -12,32 +12,37 @@
     <div class="nav-inner">
       <span class="nav-logo">essential<span class="highlight">browser</span></span>
       <div class="nav-links">
-        <a href="screenshots.html">Screenshots</a>
+        <a href="whats-new.html">What's New</a>
         <a href="index.html" class="nav-btn">&#8592; Back</a>
       </div>
     </div>
   </nav>
 
-  <section class="changelog">
-    <div class="changelog-inner">
-      <h1 class="changelog-title">What's New</h1>
-      <p class="changelog-sub">Every release, documented.</p>
+  <section class="screenshots-page">
+    <div class="screenshots-inner">
+      <h1 class="screenshots-title">Screenshots</h1>
+      <p class="screenshots-sub">A look at Essential Browser in action.</p>
 
-      <div class="release-card">
-        <div class="release-side">
-          <span class="release-btn">v1.0.0</span>
-          <span class="release-date">Initial Release</span>
+      <div class="screenshot-grid">
+        <div class="screenshot-card">
+          <div class="screenshot-frame">
+            <img src="screenshots/hero-section.png" alt="Hero Section" loading="lazy">
+          </div>
+          <p class="screenshot-label">Hero Section</p>
         </div>
-        <div class="release-content">
-          <ul>
-            <li>First public build of Essential Browser</li>
-            <li>Nothing OS inspired design</li>
-            <li>Dark & light themes</li>
-            <li>Google OAuth / Gmail integration</li>
-            <li>Incognito mode</li>
-            <li>Custom wallpapers</li>
-            <li>Keyboard shortcuts</li>
-          </ul>
+
+        <div class="screenshot-card">
+          <div class="screenshot-frame">
+            <img src="screenshots/features-section.png" alt="Features Section" loading="lazy">
+          </div>
+          <p class="screenshot-label">Features</p>
+        </div>
+
+        <div class="screenshot-card">
+          <div class="screenshot-frame">
+            <img src="screenshots/download-section.png" alt="Download Section" loading="lazy">
+          </div>
+          <p class="screenshot-label">Download Section</p>
         </div>
       </div>
     </div>
@@ -55,7 +60,7 @@
         if (entry.isIntersecting) entry.target.classList.add('visible');
       });
     }, { threshold: 0.1 });
-    document.querySelectorAll('.reveal, .reveal-up, .fade-in, .release-card').forEach(el => observer.observe(el));
+    document.querySelectorAll('.screenshot-card').forEach(el => observer.observe(el));
 
     const cursor = document.querySelector('.cursor');
     let mx = 0, my = 0, cx = 0, cy = 0;
@@ -68,7 +73,7 @@
       requestAnimationFrame(animCursor);
     }
     animCursor();
-    document.querySelectorAll('a, button, .feature-card, .hero-btn, .download-btn, .nav-btn, .release-btn').forEach(el => {
+    document.querySelectorAll('a, button, .screenshot-card, .nav-btn').forEach(el => {
       el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
       el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
     });
