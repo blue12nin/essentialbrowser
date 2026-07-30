@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What's New — Essential Browser</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="cursor"></div>
+  <nav>
+    <div class="nav-inner">
+      <span class="nav-logo">essential<span class="highlight">browser</span></span>
+      <div class="nav-links">
+        <a href="index.html" class="nav-btn">Back</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="changelog" style="padding-top: 100px;">
+    <div class="changelog-inner">
+      <h1 class="changelog-title">What's New</h1>
+
+      <div class="changelog-entry">
+        <div class="version-badge">v1.0.0</div>
+        <div class="version-date">Initial Release</div>
+        <ul>
+          <li>First public build of Essential Browser</li>
+          <li>Nothing OS inspired design</li>
+          <li>Dark & light themes</li>
+          <li>Google OAuth / Gmail integration</li>
+          <li>Incognito mode</li>
+          <li>Custom wallpapers</li>
+          <li>Keyboard shortcuts</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <p>&copy; 2026 Essential Browser. All rights reserved.</p>
+      <p class="footer-tag">built with focus</p>
+    </div>
+  </footer>
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal, .reveal-up, .fade-in').forEach(el => observer.observe(el));
+
+    const cursor = document.querySelector('.cursor');
+    let mx = 0, my = 0, cx = 0, cy = 0;
+    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+    function animCursor() {
+      cx += (mx - cx) * 0.12;
+      cy += (my - cy) * 0.12;
+      cursor.style.left = `${cx - 8}px`;
+      cursor.style.top = `${cy - 8}px`;
+      requestAnimationFrame(animCursor);
+    }
+    animCursor();
+    document.querySelectorAll('a, button, .feature-card, .hero-btn, .download-btn, .nav-btn').forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+    });
+  </script>
+</body>
+</html>

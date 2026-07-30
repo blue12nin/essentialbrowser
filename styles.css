@@ -383,6 +383,93 @@ footer {
   background: rgba(255, 199, 0, 0.5);
 }
 
+/* Nav links */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-links a:not(.nav-btn) {
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: var(--text);
+  transition: opacity 0.2s;
+}
+
+.nav-links a:not(.nav-btn):hover {
+  opacity: 0.6;
+}
+
+/* Changelog */
+.changelog {
+  min-height: 60vh;
+  padding: 60px 24px;
+}
+
+.changelog-inner {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.changelog-title {
+  font-family: "Ndot 55", "Courier New", monospace;
+  font-size: clamp(28px, 5vw, 42px);
+  letter-spacing: 3px;
+  margin-bottom: 48px;
+}
+
+.changelog-entry {
+  margin-bottom: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--border);
+}
+
+.changelog-entry:last-child {
+  border-bottom: none;
+}
+
+.version-badge {
+  display: inline-block;
+  font-family: "Ndot 55", "Courier New", monospace;
+  font-size: 18px;
+  letter-spacing: 1px;
+  padding: 6px 20px;
+  border-radius: 100px;
+  background: var(--accent);
+  color: #000;
+  margin-bottom: 8px;
+}
+
+.version-date {
+  font-size: 12px;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+.changelog-entry ul {
+  list-style: none;
+  padding: 0;
+}
+
+.changelog-entry ul li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 8px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.changelog-entry ul li::before {
+  content: ">";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-family: "Ndot 55", "Courier New", monospace;
+}
+
 @media (max-width: 600px) {
   .footer-inner {
     flex-direction: column;
